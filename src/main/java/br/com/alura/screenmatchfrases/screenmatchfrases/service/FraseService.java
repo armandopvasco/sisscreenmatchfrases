@@ -13,6 +13,11 @@ public class FraseService {
 
     public FraseDTO obtemFrase() {
         Frase f = repositorio.obtemFrase();
+
+        if (f == null) {
+            return new FraseDTO(1L, "titulo", "frase", "personagem", "");
+        }
+
         return new FraseDTO(f.getId(), f.getTitulo(), f.getFrase(), f.getPersonagem(), f.getPoster());
     }
 }
